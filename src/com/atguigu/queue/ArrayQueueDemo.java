@@ -1,7 +1,56 @@
 package com.atguigu.queue;
 
+import java.util.Scanner;
+
 public class ArrayQueueDemo {
     public static void main(String[] args) {
+        // create a queue
+        ArrayQueue queue = new ArrayQueue(3);
+        char key = ' '; // receive user's input
+        Scanner scanner = new Scanner(System.in);
+        boolean loop = true;
+        // output a menu
+        while (loop) {
+            System.out.println("s(show): show the queue");
+            System.out.println("e(exit): exit");
+            System.out.println("a(add): add data");
+            System.out.println("g(get): get data");
+            System.out.println("h(head): show the head of the queue");
+            key = scanner.next().charAt(0);
+            switch (key) {
+                case 's':
+                    queue.showQueue();
+                    break;
+                case 'a':
+                    System.out.println("Give a number");
+                    int value = scanner.nextInt();
+                    queue.addQueue(value);
+                    break;
+                case 'g':
+                    try {
+                        int res = queue.getQueue();
+                        System.out.printf("The number get is  %d\n", res);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 'h':
+                    try {
+                        int res = queue.headQueue();
+                        System.out.printf("The head of the queue is: %d\n", res);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 'e':
+                    scanner.close();
+                    loop = false;
+                    break;
+                default:
+                    break;
+            }
+        }
+        System.out.println("Exit...");
 
     }
 }
@@ -59,11 +108,11 @@ class ArrayQueue {
         }
     }
 
-    public int headQueue(){
+    public int headQueue() {
         if (isEmpty()) {
             throw new RuntimeException("The queue is empty...");
         }
-        return  arr[front+1];
+        return arr[front + 1];
     }
 
 }
