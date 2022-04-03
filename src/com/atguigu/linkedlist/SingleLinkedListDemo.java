@@ -34,11 +34,7 @@ class SingleLinkedList {
     public void add(HeroNode heroNode) {
 
         HeroNode temp = head;
-        while (true) {
-            // find the last node
-            if (temp.next == null) {
-                break;
-            }
+        while (temp.next != null) {
             // move backward if not the last node
             temp = temp.next;
         }
@@ -55,10 +51,7 @@ class SingleLinkedList {
         }
 
         HeroNode temp = head.next;
-        while (true) {
-            if (temp == null) {
-                break;
-            }
+        while (temp != null) {
             // print out the node
             System.out.println(temp);
             // move back next
