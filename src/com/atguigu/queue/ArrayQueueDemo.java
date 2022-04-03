@@ -57,8 +57,8 @@ public class ArrayQueueDemo {
 
 class ArrayQueue {
     private int maxSize; // max size of the array
-    private int front; // head of the queue
-    private int rear; // tail of the queue
+    private int front; // 指向队列的第一个元素的前一个位置
+    private int rear; // 指向队列的最后一个元素
     private int[] arr; // save the data
 
     // create queue
